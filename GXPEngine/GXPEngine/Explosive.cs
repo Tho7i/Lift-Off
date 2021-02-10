@@ -31,7 +31,7 @@ public class Explosive : Sprite
     void Update()
     {
         Move(_explosiveSpeed, 0.0f);
-        if (Mathf.Abs(this.x - _mouseX) < 2)
+        if (Mathf.Abs(this.x - _mouseX) < 3 && Mathf.Abs(this.y - _mouseY) < 3)
         {
             _explosiveSpeed = 0.0f;
 
