@@ -6,8 +6,9 @@ using GXPEngine;
 
 public class Projectile : Sprite
 {
-    float mouseDirection;
-    float mouseAngle;
+    private float _mouseDirection;
+    private float _mouseAngle;
+    private float _projectileSpeed = 7.0f;
 
     public Projectile() : base("triangle.png")
     {
@@ -17,14 +18,14 @@ public class Projectile : Sprite
 
     public void SetRotation()
     {
-        mouseDirection = Mathf.Atan2(Input.mouseY - this.y, Input.mouseX - this.x);
-        mouseAngle = (mouseDirection * (180 / Mathf.PI));
-        this.rotation = mouseAngle;
+        _mouseDirection = Mathf.Atan2(Input.mouseY - this.y, Input.mouseX - this.x);
+        _mouseAngle = (_mouseDirection * (180 / Mathf.PI));
+        this.rotation = _mouseAngle;
     }
 
     void Update()
     {
-        Move(7.0f, 0.0f);
+        Move(_projectileSpeed, 0.0f);
         if (this.x > game.width || this.x < 0 || this.y < 0 || this.y > game.height)
         {
             this.LateDestroy();

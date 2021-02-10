@@ -70,6 +70,14 @@ public class Player : Sprite
             projectile.SetXY(this.x, this.y - this.height / 2 + 20);
             projectile.SetRotation();
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Explosive explosive = new Explosive();
+            game.AddChild(explosive);
+            explosive.SetXY(this.x, this.y - this.height / 2 + 20);
+            explosive.SetRotation();
+        }
     }
 
     void Update()
