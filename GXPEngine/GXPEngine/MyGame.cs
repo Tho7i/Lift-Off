@@ -6,8 +6,8 @@ public class MyGame : Game
 {
 	public MyGame() : base(800, 600, false)		// Create a window that's 800x600 and NOT fullscreen
 	{
-		Level level = new Level();
-		AddChild(level);
+		StartScreen startScreen = new StartScreen();
+		AddChild(startScreen);
     }
 
     void Update()

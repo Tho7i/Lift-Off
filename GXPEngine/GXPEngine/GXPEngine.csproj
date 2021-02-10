@@ -79,5 +79,7 @@
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
+    <Compile Include="UI\Button.cs" />
+    <Compile Include="UI\StartScreen.cs" />
   </ItemGroup>
 </Project>
