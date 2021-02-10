@@ -25,5 +25,9 @@ public class Projectile : Sprite
     void Update()
     {
         Move(7.0f, 0.0f);
+        if (this.x > game.width || this.x < 0 || this.y < 0 || this.y > game.height)
+        {
+            this.LateDestroy();
+        }
     }
 }

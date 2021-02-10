@@ -11,7 +11,6 @@ public class Player : Sprite
     private int _ySpawn = 200;
 
 
-
     public Player() : base("colors.png")
     {
         this.x = _xSpawn;
@@ -39,6 +38,26 @@ public class Player : Sprite
         if (Input.GetKey(Key.W))
         {
             MoveUntilCollision(0.0f, -1.25f);
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+        //                                                 Phasing (Teleporting a short distance)
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+        if (Input.GetKeyUp(Key.LEFT_SHIFT) && Input.GetKey(Key.A))
+        {
+            Move(-150.0f, 0.0f);
+        }
+        if (Input.GetKeyUp(Key.LEFT_SHIFT) && Input.GetKey(Key.D))
+        {
+            Move(150.0f, 0.0f);
+        }
+        if (Input.GetKeyUp(Key.LEFT_SHIFT) && Input.GetKey(Key.W))
+        {
+            Move(0.0f, -150.0f);
+        }
+        if (Input.GetKeyUp(Key.LEFT_SHIFT) && Input.GetKey(Key.S))
+        {
+            Move(0.0f, 150.0f);
         }
     }
 
