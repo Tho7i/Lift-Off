@@ -4,19 +4,24 @@ using System.Linq;
 using System.Text;
 using GXPEngine;
 
-public class Player : Sprite
+public class Player : AnimSprite
 {
 
     private int _xSpawn = 200;
     private int _ySpawn = 200;
     private float _speed = 1.25f;
+    private bool _shiva = true;
+    private bool _ganesh = false;
+    private bool _krishna = false;
 
 
-    public Player() : base("colors.png")
+    public Player() : base("Sprite.png", 4, 1)
     {
         this.x = _xSpawn;
         this.y = _ySpawn;
         this.SetOrigin(this.width / 2, this.height / 2);
+        SetFrame(0);
+        SetScaleXY(2.0f, 2.0f);
     }
 
     private void handleMovement()
@@ -64,23 +69,18 @@ public class Player : Sprite
 
     private void handleShooting()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && _shiva)
         {
             Projectile projectile = new Projectile();
             game.AddChild(projectile);
             projectile.SetXY(this.x, this.y - this.height / 2 + 20);
             projectile.SetRotation();
+            Console.WriteLine(_shiva.ToString());
+            Console.WriteLine(_krishna.ToString());
+            Console.WriteLine(_ganesh.ToString());
         }
 
-        /*if (Input.GetMouseButtonDown(1))
-        {
-            Explosive explosive = new Explosive();
-            game.AddChild(explosive);
-            explosive.SetXY(this.x, this.y - this.height / 2 + 20);
-            explosive.SetRotation();
-        }*/
-
-        if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(0) && _ganesh)
         {
             Melee melee = new Melee();
             melee.SetTargetPlayer(this);
@@ -88,10 +88,43 @@ public class Player : Sprite
             melee.SetXY(this.x, this.y);
             melee.SetRotation();
         }
+
+        else if (Input.GetMouseButtonDown(0) && _krishna)
+        {
+            Explosive explosive = new Explosive();
+            game.AddChild(explosive);
+            explosive.SetXY(this.x, this.y - this.height / 2 + 20);
+            explosive.SetRotation();
+        }
+    }
+
+    private void handleShifting()
+    {
+        if (Input.GetKeyUp(Key.LEFT_SHIFT) && _shiva)
+        {
+            _ganesh = true;
+            _shiva = false;
+            SetFrame(1);
+        }
+
+        else if (Input.GetKeyUp(Key.LEFT_SHIFT) && _ganesh)
+        {
+            _krishna = true;
+            _ganesh = false;
+            SetFrame(2);
+        }
+
+        else if (Input.GetKeyUp(Key.LEFT_SHIFT) && _krishna)
+        {
+            _shiva = true;
+            _krishna = false;
+            SetFrame(0);
+        }
     }
 
     void Update()
     {
+        handleShifting();
         handleMovement();
         handleShooting();
     }
