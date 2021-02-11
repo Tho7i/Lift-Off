@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Attacks\Explosive.cs" />
     <Compile Include="Attacks\Melee.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
     <Compile Include="Level.cs" />

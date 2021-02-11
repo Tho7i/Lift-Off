@@ -14,6 +14,10 @@ public class Player : AnimSprite
     private bool _ganesh = false;
     private bool _krishna = false;
 
+    private int _score;
+    private int _karma;
+    private int _health = 3;
+
 
     public Player() : base("Sprite.png", 4, 1)
     {
@@ -49,19 +53,19 @@ public class Player : AnimSprite
         //-------------------------------------------------------------------------------------------------------------------------------------------
         //                                                 Phasing (Teleporting a short distance)
         //-------------------------------------------------------------------------------------------------------------------------------------------
-        if (Input.GetKeyUp(Key.LEFT_SHIFT) && Input.GetKey(Key.A))
+        if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.A))
         {
             Move(-150.0f, 0.0f);
         }
-        if (Input.GetKeyUp(Key.LEFT_SHIFT) && Input.GetKey(Key.D))
+        if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.D))
         {
             Move(150.0f, 0.0f);
         }
-        if (Input.GetKeyUp(Key.LEFT_SHIFT) && Input.GetKey(Key.W))
+        if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.W))
         {
             Move(0.0f, -150.0f);
         }
-        if (Input.GetKeyUp(Key.LEFT_SHIFT) && Input.GetKey(Key.S))
+        if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.S))
         {
             Move(0.0f, 150.0f);
         }
@@ -127,5 +131,24 @@ public class Player : AnimSprite
         handleShifting();
         handleMovement();
         handleShooting();
+    }
+    void OnCollision(GameObject other)
+    {
+        if (other is Enemy)
+        {
+            _health--;
+            other.Destroy();
+        }
+    }
+
+
+    public int GetScore()
+    {
+        return _score;
+    }
+
+    public int GetKarma()
+    {
+        return _karma;
     }
 }
