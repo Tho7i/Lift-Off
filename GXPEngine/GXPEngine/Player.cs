@@ -14,7 +14,7 @@ public class Player : AnimSprite
     private bool _ganesh = false;
     private bool _krishna = false;
 
-    private int _score;
+    public int score;
     private int _karma;
     private int _health = 3;
 
@@ -139,12 +139,6 @@ public class Player : AnimSprite
             _health--;
             other.Destroy();
         }
-    }
-
-
-    public int GetScore()
-    {
-        return _score;
     }
 
     public int GetKarma()

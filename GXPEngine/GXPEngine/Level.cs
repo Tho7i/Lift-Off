@@ -11,11 +11,16 @@ public class Level : GameObject
 
     Enemy enemy;
     Player player;
+    HUD hud;
 
     public Level() : base()
     {
         player = new Player();
         AddChild(player);
+
+        hud = new HUD();
+        AddChild(hud);
+        hud.SetTargetPlayer(player);
     }
 
     private void enemySpawning()

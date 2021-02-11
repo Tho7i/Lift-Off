@@ -11,8 +11,6 @@ public class Enemy : AnimSprite
     private int _health = 4;
     private int _randomise;
     private int _randomise2;
-    private int _spawnX;
-    private int _spawnY;
 
     public Enemy() : base("Enemy.png", 2, 1)
     {
@@ -72,6 +70,7 @@ public class Enemy : AnimSprite
         if (_health <= 0)
         {
             LateDestroy();
+            _targetPlayer.score++;
         }
     }
 
@@ -85,13 +84,18 @@ public class Enemy : AnimSprite
 
         if (other is Player)
         {
-            LateDestroy();
+            _health = 0;
         }
 
         if (other is Projectile)
         {
             _health--;
             other.LateDestroy();
+        }
+
+        if (other is Explosive)
+        {
+            _health -= 3;
         }
     }
 

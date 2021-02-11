@@ -13,7 +13,7 @@ public class Explosive : Sprite
     private float _mouseY;
     private float _explosionTime = 3000;
 
-    public Explosive() : base("circle.png", false, false)
+    public Explosive() : base("circle.png")
     {
         SetScaleXY(0.5f, 0.5f);
         SetOrigin(this.width / 2, this.height / 2);
