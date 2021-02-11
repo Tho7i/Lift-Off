@@ -17,6 +17,7 @@ public class Timer : GameObject
 
     public void Update()
     {
+        Console.WriteLine("Test");
         _time -= Time.deltaTime;
         if (_time <= 0)
         {

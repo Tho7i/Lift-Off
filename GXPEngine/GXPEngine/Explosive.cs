@@ -11,8 +11,9 @@ public class Explosive : Sprite
     private float _mouseAngle;
     private float _mouseX;
     private float _mouseY;
+    private float _explosionTime = 5000;
 
-    public Explosive() : base("circle.png")
+    public Explosive() : base("circle.png", false, false)
     {
         SetScaleXY(0.5f, 0.5f);
         SetOrigin(this.width / 2, this.height / 2);
@@ -34,8 +35,15 @@ public class Explosive : Sprite
         if (Mathf.Abs(this.x - _mouseX) < 3 && Mathf.Abs(this.y - _mouseY) < 3)
         {
             _explosiveSpeed = 0.0f;
-
+            SetScaleXY(1, 1);
+            _explosionTime -= Time.deltaTime;
+            //CollisionManager.Add(this);)
+            if (_explosionTime <= 0)
+            {
+                LateDestroy();
+            }
         }
+
         if (x < 0 || x > game.width || y < 0 || y > game.width)
         {
             LateDestroy();

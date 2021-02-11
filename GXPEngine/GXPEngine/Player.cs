@@ -9,6 +9,7 @@ public class Player : Sprite
 
     private int _xSpawn = 200;
     private int _ySpawn = 200;
+    private float _speed = 1.25f;
 
 
     public Player() : base("colors.png")
@@ -25,19 +26,19 @@ public class Player : Sprite
         //-------------------------------------------------------------------------------------------------------------------------------------------
         if (Input.GetKey(Key.A))
         {
-            MoveUntilCollision(-1.25f, 0.0f);
+            Move(-_speed, 0.0f);
         }
         if (Input.GetKey(Key.D))
         {
-            MoveUntilCollision(1.25f, 0.0f);
+            Move(_speed, 0.0f);
         }
         if (Input.GetKey(Key.S))
         {
-            MoveUntilCollision(0.0f, 1.25f);
+            Move(0.0f, _speed);
         }
         if (Input.GetKey(Key.W))
         {
-            MoveUntilCollision(0.0f, -1.25f);
+            Move(0.0f, -_speed);
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
