@@ -11,7 +11,7 @@ public class Explosive : Sprite
     private float _mouseAngle;
     private float _mouseX;
     private float _mouseY;
-    private float _explosionTime = 5000;
+    private float _explosionTime = 3000;
 
     public Explosive() : base("circle.png", false, false)
     {
@@ -37,7 +37,6 @@ public class Explosive : Sprite
             _explosiveSpeed = 0.0f;
             SetScaleXY(1, 1);
             _explosionTime -= Time.deltaTime;
-            //CollisionManager.Add(this);)
             if (_explosionTime <= 0)
             {
                 LateDestroy();

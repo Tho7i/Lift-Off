@@ -36,7 +36,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Explosive.cs" />
+    <Compile Include="Attacks\Explosive.cs" />
+    <Compile Include="Attacks\Melee.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
     <Compile Include="Level.cs" />
@@ -79,7 +80,7 @@
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Projectile.cs" />
+    <Compile Include="Attacks\Projectile.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="UI\Button.cs" />
     <Compile Include="UI\StartScreen.cs" />

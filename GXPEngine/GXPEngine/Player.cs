@@ -30,7 +30,7 @@ public class Player : Sprite
         }
         if (Input.GetKey(Key.D))
         {
-            Move(_speed, 0.0f);
+            MoveUntilCollision(_speed, 0.0f);
         }
         if (Input.GetKey(Key.S))
         {
@@ -72,12 +72,21 @@ public class Player : Sprite
             projectile.SetRotation();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        /*if (Input.GetMouseButtonDown(1))
         {
             Explosive explosive = new Explosive();
             game.AddChild(explosive);
             explosive.SetXY(this.x, this.y - this.height / 2 + 20);
             explosive.SetRotation();
+        }*/
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Melee melee = new Melee();
+            melee.SetTargetPlayer(this);
+            game.AddChild(melee);
+            melee.SetXY(this.x, this.y);
+            melee.SetRotation();
         }
     }
 
