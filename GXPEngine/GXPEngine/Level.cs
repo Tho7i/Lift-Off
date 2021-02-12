@@ -82,7 +82,6 @@ public class Level : GameObject
         if (player.GetHealth() <= 0)
         {
             this.Destroy();
-            loader.Destroy();
             StartScreen startScreen = new StartScreen();
             game.AddChild(startScreen);
         }
