@@ -1,6 +1,7 @@
 using System;									// System contains a lot of default C# libraries 
 using System.Drawing;                           // System.Drawing contains a library used for canvas drawing below
-using GXPEngine;								// GXPEngine contains the engine
+using GXPEngine;                                // GXPEngine contains the engine
+using TiledMapParser;
 
 public class MyGame : Game
 {
@@ -8,6 +9,7 @@ public class MyGame : Game
 	{
 		StartScreen startScreen = new StartScreen();
 		AddChild(startScreen);
+        Console.WriteLine(targetFps);
     }
 
     void Update()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using GXPEngine;
+using TiledMapParser;       //necessary to read the map
 
 public class Level : GameObject
 {
@@ -15,6 +16,7 @@ public class Level : GameObject
 
     public Level() : base()
     {
+        setupLevel();             
         player = new Player();
         AddChild(player);
 
@@ -23,6 +25,39 @@ public class Level : GameObject
         hud.SetTargetPlayer(player);
     }
 
+    //level loading method
+	public void setupLevel()
+	{
+		LoadMap("Project3MAP02.tmx");
+
+	}
+
+    //tiles loading(order matters depending on how the tiles are ordered)
+    private void LoadMap(string filename)
+    {
+        TiledLoader loader = new TiledLoader(filename);
+
+
+
+        loader.addColliders = false;    //disables collision
+        loader.LoadTileLayers(0);
+
+        loader.addColliders = false;    //disables collision
+        loader.LoadTileLayers(1);
+
+        loader.addColliders = true;     //enables collision
+        loader.LoadTileLayers(2);
+
+
+
+
+
+        loader.autoInstance = true;     //instantiates object layers
+        loader.LoadObjectGroups();
+
+
+
+    }
     private void enemySpawning()
     {
         {

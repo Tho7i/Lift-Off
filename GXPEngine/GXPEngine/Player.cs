@@ -9,7 +9,7 @@ public class Player : AnimSprite
 
     private int _xSpawn = 200;
     private int _ySpawn = 200;
-    private float _speed = 1.25f;
+    private float _speed = 1.5f;
     private bool _shiva = true;
     private bool _ganesh = false;
     private bool _krishna = false;
@@ -19,13 +19,13 @@ public class Player : AnimSprite
     private int _health = 3;
 
 
-    public Player() : base("Sprite.png", 4, 1)
+    public Player() : base("Char.png", 3, 1)
     {
         this.x = _xSpawn;
         this.y = _ySpawn;
         this.SetOrigin(this.width / 2, this.height / 2);
         SetFrame(0);
-        SetScaleXY(2.0f, 2.0f);
+        //SetScaleXY(2.0f, 2.0f);
     }
 
     private void handleMovement()
@@ -35,19 +35,19 @@ public class Player : AnimSprite
         //-------------------------------------------------------------------------------------------------------------------------------------------
         if (Input.GetKey(Key.A))
         {
-            Move(-_speed, 0.0f);
+            MoveUntilCollision(-_speed, 0.0f);
         }
         if (Input.GetKey(Key.D))
         {
-            MoveUntilCollision(_speed, 0.0f);
+            MoveUntilCollision(_speed, 0.0f);              //added move untilcollision to the rest
         }
         if (Input.GetKey(Key.S))
         {
-            Move(0.0f, _speed);
+            MoveUntilCollision(0.0f, _speed);
         }
         if (Input.GetKey(Key.W))
         {
-            Move(0.0f, -_speed);
+            MoveUntilCollision(0.0f, -_speed);
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
@@ -55,19 +55,19 @@ public class Player : AnimSprite
         //-------------------------------------------------------------------------------------------------------------------------------------------
         if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.A))
         {
-            Move(-150.0f, 0.0f);
+            MoveUntilCollision(-150.0f, 0.0f);
         }
         if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.D))
         {
-            Move(150.0f, 0.0f);
+            MoveUntilCollision(150.0f, 0.0f);
         }
-        if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.W))
+        if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.W))           //added move until collision 
         {
-            Move(0.0f, -150.0f);
+            MoveUntilCollision(0.0f, -150.0f);
         }
         if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.S))
         {
-            Move(0.0f, 150.0f);
+            MoveUntilCollision(0.0f, 150.0f);
         }
     }
 
@@ -79,9 +79,6 @@ public class Player : AnimSprite
             game.AddChild(projectile);
             projectile.SetXY(this.x, this.y - this.height / 2 + 20);
             projectile.SetRotation();
-            Console.WriteLine(_shiva.ToString());
-            Console.WriteLine(_krishna.ToString());
-            Console.WriteLine(_ganesh.ToString());
         }
 
         else if (Input.GetMouseButtonDown(0) && _ganesh)
@@ -137,7 +134,7 @@ public class Player : AnimSprite
         if (other is Enemy)
         {
             _health--;
-            other.Destroy();
+            other.LateDestroy();    //changed to LateDestroy to avoid crash
         }
     }
 

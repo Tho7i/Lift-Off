@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using GXPEngine;
 using System.Drawing;
+using TiledMapParser;
 
 public class StartScreen : GameObject
 {

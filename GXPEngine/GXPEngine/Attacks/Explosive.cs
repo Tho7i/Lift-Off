@@ -6,7 +6,7 @@ using GXPEngine;
 
 public class Explosive : Sprite
 {
-    private float _explosiveSpeed;
+    private float _explosiveSpeed = 5.0f;
     private float _mouseDirection;
     private float _mouseAngle;
     private float _mouseX;
@@ -19,7 +19,6 @@ public class Explosive : Sprite
         SetOrigin(this.width / 2, this.height / 2);
         _mouseX = Input.mouseX;
         _mouseY = Input.mouseY;
-        _explosiveSpeed = 5.0f;
     }
 
     public void SetRotation()
