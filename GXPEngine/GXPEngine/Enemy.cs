@@ -7,13 +7,16 @@ using GXPEngine;
 public class Enemy : AnimSprite
 {
     private Player _targetPlayer;
-    private float _movSpeed = 0.35f;
-    private int _health = 4;
+    private float _movSpeed = 0.4f;
+    private int _health = 2;
     private int _randomise;
     private int _randomise2;
 
+    private Sound _enemyDamage;
+
     public Enemy() : base("Enemy.png", 2, 1)
     {
+        _enemyDamage = new Sound("EnemyDamage.wav", false, false);
         this.SetOrigin(this.width / 2, this.height / 2);
         SetFrame(0);
         randomizeEnemyPosition();
@@ -79,6 +82,7 @@ public class Enemy : AnimSprite
         if (other is Melee)
         {
             _health -= 2;
+            _enemyDamage.Play();
             other.LateDestroy();
         }
 
@@ -89,13 +93,15 @@ public class Enemy : AnimSprite
 
         if (other is Projectile)
         {
+            _enemyDamage.Play();
             _health--;
             other.LateDestroy();
         }
 
         if (other is Explosive)
         {
-            _health -= 3;
+            _enemyDamage.Play();
+            _health -= 2;
         }
     }
 

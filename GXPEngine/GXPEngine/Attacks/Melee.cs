@@ -40,7 +40,7 @@ public class Melee : Sprite
     {
         Move(_projectileSpeed, 0.0f);
 
-        if (distanceFromPlayer() > 100)
+        if (distanceFromPlayer() > 50)
         {
             this.LateDestroy();
         }

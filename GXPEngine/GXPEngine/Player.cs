@@ -27,6 +27,9 @@ public class Player : AnimSprite
     private float _lastTimeShotMelee = 0;
     private float _lastTimeShotExplosive = 0;
 
+    //Sounds
+    private Sound _playerDamage;
+
 
     public Player() : base("Char.png", 3, 1)
     {
@@ -34,6 +37,7 @@ public class Player : AnimSprite
         this.y = _ySpawn;
         this.SetOrigin(this.width / 2, this.height / 2);
         SetFrame(0);
+        _playerDamage = new Sound("PlayerDamage.mp3", false, false);
         //Camera camera = new Camera(0, 0, game.width, game.height);
         //AddChild(camera);
     }
@@ -147,6 +151,7 @@ public class Player : AnimSprite
         if (other is Enemy)
         {
             _health--;
+            _playerDamage.Play();
             other.LateDestroy();    //changed to LateDestroy to avoid crash
         }
     }
