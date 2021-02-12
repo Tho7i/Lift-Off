@@ -154,4 +154,9 @@ public class Player : AnimSprite
     {
         return _karma;
     }
+
+    public int GetHealth()
+    {
+        return _health;
+    }
 }

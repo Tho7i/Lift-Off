@@ -13,6 +13,7 @@ public class Level : GameObject
     Enemy enemy;
     Player player;
     HUD hud;
+    TiledLoader loader;
 
     public Level() : base()
     {
@@ -35,7 +36,7 @@ public class Level : GameObject
     //tiles loading(order matters depending on how the tiles are ordered)
     private void LoadMap(string filename)
     {
-        TiledLoader loader = new TiledLoader(filename);
+        loader = new TiledLoader(filename);
 
 
 
@@ -78,5 +79,12 @@ public class Level : GameObject
     void Update()
     {
         enemySpawning();
+        if (player.GetHealth() <= 0)
+        {
+            this.Destroy();
+            loader.Destroy();
+            StartScreen startScreen = new StartScreen();
+            game.AddChild(startScreen);
+        }
     }
 }

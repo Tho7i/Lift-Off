@@ -10,7 +10,7 @@ namespace TiledMapParser {
 	/// <summary>
 	/// A class for automatically creating GXPEngine sprites from Tiled files.
 	/// </summary>
-	public class TiledLoader {
+	public class TiledLoader : GameObject {
 		Map map;
 
 		/// <summary>
