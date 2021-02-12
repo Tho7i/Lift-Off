@@ -9,14 +9,23 @@ public class Player : AnimSprite
 
     private int _xSpawn = 200;
     private int _ySpawn = 200;
-    private float _speed = 1.5f;
-    private bool _shiva = true;
-    private bool _ganesh = false;
+    private float _speed = 1.0f;
+    private bool _shiva = false;
+    private bool _ganesh = true;
     private bool _krishna = false;
 
     public int score;
     private int _karma;
     private int _health = 3;
+
+
+    //reload cooldown in miliseonds
+    private float _projectileReload= 500;
+    private float _meleeReload = 500;
+    private float _explosiveReload = 4000;
+    private float _lastTimeShotProjectile = 0;
+    private float _lastTimeShotMelee = 0;
+    private float _lastTimeShotExplosive = 0;
 
 
     public Player() : base("Char.png", 3, 1)
@@ -73,29 +82,32 @@ public class Player : AnimSprite
 
     private void handleShooting()
     {
-        if (Input.GetMouseButtonDown(0) && _shiva)
+        if (Input.GetMouseButtonDown(0) && _shiva && _lastTimeShotProjectile + _projectileReload < Time.now)
         {
             Projectile projectile = new Projectile();
             game.AddChild(projectile);
             projectile.SetXY(this.x, this.y - this.height / 2 + 20);
             projectile.SetRotation();
+            _lastTimeShotProjectile = Time.now;
         }
 
-        else if (Input.GetMouseButtonDown(0) && _ganesh)
+        else if (Input.GetMouseButtonDown(0) && _ganesh && _lastTimeShotMelee + _meleeReload < Time.now)
         {
             Melee melee = new Melee();
             melee.SetTargetPlayer(this);
             game.AddChild(melee);
             melee.SetXY(this.x, this.y);
             melee.SetRotation();
+            _lastTimeShotMelee = Time.now;
         }
 
-        else if (Input.GetMouseButtonDown(0) && _krishna)
+        else if (Input.GetMouseButtonDown(0) && _krishna && _lastTimeShotExplosive + _explosiveReload < Time.now)
         {
             Explosive explosive = new Explosive();
             game.AddChild(explosive);
             explosive.SetXY(this.x, this.y - this.height / 2 + 20);
             explosive.SetRotation();
+            _lastTimeShotExplosive = Time.now;
         }
     }
 
@@ -105,21 +117,21 @@ public class Player : AnimSprite
         {
             _ganesh = true;
             _shiva = false;
-            SetFrame(1);
+            SetFrame(0);
         }
 
         else if (Input.GetKeyUp(Key.LEFT_SHIFT) && _ganesh)
         {
             _krishna = true;
             _ganesh = false;
-            SetFrame(2);
+            SetFrame(1);
         }
 
         else if (Input.GetKeyUp(Key.LEFT_SHIFT) && _krishna)
         {
             _shiva = true;
             _krishna = false;
-            SetFrame(0);
+            SetFrame(2);
         }
     }
 

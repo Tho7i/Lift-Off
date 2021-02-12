@@ -10,11 +10,11 @@ public class MyGame : Game
 		StartScreen startScreen = new StartScreen();
 		AddChild(startScreen);
         Console.WriteLine(targetFps);
+		targetFps = 60;
     }
 
     void Update()
 	{
-		
 	}
 
 	static void Main()							// Main() is the first method that's called when the program is run
