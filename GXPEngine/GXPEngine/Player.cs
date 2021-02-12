@@ -34,7 +34,8 @@ public class Player : AnimSprite
         this.y = _ySpawn;
         this.SetOrigin(this.width / 2, this.height / 2);
         SetFrame(0);
-        //SetScaleXY(2.0f, 2.0f);
+        //Camera camera = new Camera(0, 0, game.width, game.height);
+        //AddChild(camera);
     }
 
     private void handleMovement()

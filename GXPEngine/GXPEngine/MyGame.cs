@@ -5,7 +5,7 @@ using TiledMapParser;
 
 public class MyGame : Game
 {
-	public MyGame() : base(800, 600, false)		// Create a window that's 800x600 and NOT fullscreen
+	public MyGame() : base(960, 576, false)		// Create a window that's 800x600 and NOT fullscreen
 	{
 		StartScreen startScreen = new StartScreen();
 		AddChild(startScreen);
