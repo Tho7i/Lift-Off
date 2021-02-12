@@ -71,7 +71,11 @@ public class Level : GameObject
                     enemy.SetTargetPlayer(player);
                     _lastTimeSpawned = Time.time;
                 }
-                _enemiesToSpawn++;
+                if (_enemiesToSpawn < 8)
+                {
+                    _enemiesToSpawn++;
+                }
+                    
             }
         }
     }

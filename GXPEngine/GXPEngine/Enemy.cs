@@ -7,7 +7,7 @@ using GXPEngine;
 public class Enemy : AnimSprite
 {
     private Player _targetPlayer;
-    private float _movSpeed = 0.5f;
+    private float _movSpeed = 0.35f;
     private int _health = 4;
     private int _randomise;
     private int _randomise2;
