@@ -7,7 +7,7 @@ using GXPEngine;
 public class HUD : Canvas
 {
     private Player _targetPlayer;
-    public HUD() : base(128, 64)
+    public HUD() : base(128, 64, false)
     {
         SetScaleXY(3.0f);
     }

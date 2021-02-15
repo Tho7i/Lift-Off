@@ -8,7 +8,7 @@ public class Projectile : Sprite
 {
     private float _mouseDirection;
     private float _mouseAngle;
-    private float _projectileSpeed = 7.0f;
+    private float _projectileSpeed = 15.0f;
 
     public Projectile() : base("triangle.png")
     {

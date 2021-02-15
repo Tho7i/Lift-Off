@@ -6,7 +6,7 @@ using GXPEngine;
 
 public class Explosive : Sprite
 {
-    private float _explosiveSpeed = 5.0f;
+    private float _explosiveSpeed = 10.0f;
     private float _mouseDirection;
     private float _mouseAngle;
     private float _mouseX;
@@ -31,7 +31,7 @@ public class Explosive : Sprite
     void Update()
     {
         Move(_explosiveSpeed, 0.0f);
-        if (Mathf.Abs(this.x - _mouseX) < 3 && Mathf.Abs(this.y - _mouseY) < 3)
+        if (Mathf.Abs(this.x - _mouseX) < 5 && Mathf.Abs(this.y - _mouseY) < 5)
         {
             _explosiveSpeed = 0.0f;
             SetScaleXY(1, 1);

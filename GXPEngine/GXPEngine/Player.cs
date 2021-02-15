@@ -9,7 +9,7 @@ public class Player : AnimSprite
 
     private int _xSpawn = 200;
     private int _ySpawn = 200;
-    private float _speed = 1.0f;
+    private float _speed = 2.4f;
     private bool _shiva = false;
     private bool _ganesh = true;
     private bool _krishna = false;
