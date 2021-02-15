@@ -33,8 +33,10 @@ public class Player : AnimSprite
 
     public Player() : base("Char.png", 3, 1)
     {
+        //setting the spawn position
         this.x = _xSpawn;
         this.y = _ySpawn;
+        //setting the originat the center of the sprite
         this.SetOrigin(this.width / 2, this.height / 2);
         SetFrame(0);
         _playerDamage = new Sound("PlayerDamage.mp3", false, false);
@@ -42,6 +44,9 @@ public class Player : AnimSprite
         //AddChild(camera);
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //                                                                                        handleMovement()
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     private void handleMovement()
     {
         //-------------------------------------------------------------------------------------------------------------------------------------------
@@ -51,14 +56,17 @@ public class Player : AnimSprite
         {
             MoveUntilCollision(-_speed, 0.0f);
         }
+
         if (Input.GetKey(Key.D))
         {
             MoveUntilCollision(_speed, 0.0f);              //added move untilcollision to the rest
         }
+
         if (Input.GetKey(Key.S))
         {
             MoveUntilCollision(0.0f, _speed);
         }
+
         if (Input.GetKey(Key.W))
         {
             MoveUntilCollision(0.0f, -_speed);
@@ -69,22 +77,40 @@ public class Player : AnimSprite
         //-------------------------------------------------------------------------------------------------------------------------------------------
         if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.A))
         {
-            MoveUntilCollision(-150.0f, 0.0f);
+            for (int i = 0; i <150; i++)
+            {
+                MoveUntilCollision(-1.0f, 0.0f);
+            }  
         }
+
         if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.D))
         {
-            MoveUntilCollision(150.0f, 0.0f);
+            for (int i = 0; i < 150; i++)
+            {
+                MoveUntilCollision(1.0f, 0.0f);
+            }
         }
+
         if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.W))           //added move until collision 
         {
-            MoveUntilCollision(0.0f, -150.0f);
+            for (int i = 0; i < 150; i++)
+            {
+                MoveUntilCollision(0.0f, -1.0f);
+            }
         }
+
         if (Input.GetKeyUp(Key.SPACE) && Input.GetKey(Key.S))
         {
-            MoveUntilCollision(0.0f, 150.0f);
+            for (int i = 0; i < 150; i++)
+            {
+                MoveUntilCollision(0.0f, 1.0f);
+            }
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //                                                                                        handleShooting()
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     private void handleShooting()
     {
         if (Input.GetMouseButtonDown(0) && _shiva && _lastTimeShotProjectile + _projectileReload < Time.now)
@@ -116,6 +142,9 @@ public class Player : AnimSprite
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //                                                                                        handleShifting()
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     private void handleShifting()
     {
         if (Input.GetKeyUp(Key.LEFT_SHIFT) && _shiva)
@@ -146,6 +175,7 @@ public class Player : AnimSprite
         handleMovement();
         handleShooting();
     }
+
     void OnCollision(GameObject other)
     {
         if (other is Enemy)
@@ -156,6 +186,10 @@ public class Player : AnimSprite
         }
     }
 
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //                                                                                        pubblic getters
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public int GetKarma()
     {
         return _karma;

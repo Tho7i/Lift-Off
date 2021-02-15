@@ -9,6 +9,7 @@ public class HUD : Canvas
     private Player _targetPlayer;
     public HUD() : base(128, 64)
     {
+        SetScaleXY(3.0f);
     }
 
     void Update()
@@ -16,8 +17,8 @@ public class HUD : Canvas
         if (_targetPlayer != null)
         {
             graphics.Clear(Color.Empty);
-            graphics.DrawString("Score:" + _targetPlayer.score, SystemFonts.DefaultFont, Brushes.White, 0, 0);
-            graphics.DrawString("Karma:" + _targetPlayer.GetKarma(), SystemFonts.DefaultFont, Brushes.White, 100, 100);
+            graphics.DrawString("Score: " + _targetPlayer.score, SystemFonts.DefaultFont, Brushes.Black, 0, 0);
+            //graphics.DrawString("Karma: " + _targetPlayer.GetKarma(), SystemFonts.DefaultFont, Brushes.White, 100, 100);
         }
     }
 
