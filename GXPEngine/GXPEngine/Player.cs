@@ -27,6 +27,8 @@ public class Player : AnimSprite
     private float _lastTimeShotMelee = 0;
     private float _lastTimeShotExplosive = 0;
 
+    private Level _targetLevel;
+
     //Sounds
     private Sound _playerDamage;
 
@@ -40,6 +42,7 @@ public class Player : AnimSprite
         this.SetOrigin(this.width / 2, this.height / 2);
         SetFrame(0);
         _playerDamage = new Sound("PlayerDamage.mp3", false, false);
+
         //Camera camera = new Camera(0, 0, game.width, game.height);
         //AddChild(camera);
     }
@@ -116,7 +119,9 @@ public class Player : AnimSprite
         if (Input.GetMouseButtonDown(0) && _shiva && _lastTimeShotProjectile + _projectileReload < Time.now)
         {
             Projectile projectile = new Projectile();
-            game.AddChild(projectile);
+            //projectile.SetTargetPlayer(this);
+            //projectile.SetTargetLevel(_targetLevel);
+            this.parent.AddChild(projectile);
             projectile.SetXY(this.x, this.y - this.height / 2 + 20);
             projectile.SetRotation();
             _lastTimeShotProjectile = Time.now;
@@ -126,7 +131,7 @@ public class Player : AnimSprite
         {
             Melee melee = new Melee();
             melee.SetTargetPlayer(this);
-            game.AddChild(melee);
+            this.parent.AddChild(melee);
             melee.SetXY(this.x, this.y);
             melee.SetRotation();
             _lastTimeShotMelee = Time.now;
@@ -135,7 +140,7 @@ public class Player : AnimSprite
         else if (Input.GetMouseButtonDown(0) && _krishna && _lastTimeShotExplosive + _explosiveReload < Time.now)
         {
             Explosive explosive = new Explosive();
-            game.AddChild(explosive);
+            this.parent.AddChild(explosive);
             explosive.SetXY(this.x, this.y - this.height / 2 + 20);
             explosive.SetRotation();
             _lastTimeShotExplosive = Time.now;
@@ -188,7 +193,7 @@ public class Player : AnimSprite
 
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    //                                                                                        pubblic getters
+    //                                                                                        pubblic getters/setters
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public int GetKarma()
     {
@@ -198,5 +203,10 @@ public class Player : AnimSprite
     public int GetHealth()
     {
         return _health;
+    }
+
+    public void SetTargetLevel(Level level)
+    {
+        _targetLevel = level;
     }
 }

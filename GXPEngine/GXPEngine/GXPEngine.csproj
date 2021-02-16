@@ -36,9 +36,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attacks\EnemyProjectile.cs" />
     <Compile Include="Attacks\Explosive.cs" />
     <Compile Include="Attacks\Melee.cs" />
-    <Compile Include="Enemy.cs" />
+    <Compile Include="Enemies\Enemy.cs" />
+    <Compile Include="Enemies\RangedEnemy.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
     <Compile Include="Level.cs" />
@@ -87,4 +89,5 @@
     <Compile Include="UI\HUD.cs" />
     <Compile Include="UI\StartScreen.cs" />
   </ItemGroup>
+  <ItemGroup />
 </Project>

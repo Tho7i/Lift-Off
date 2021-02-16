@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using GXPEngine;
 
-public class Projectile : Sprite
+public class EnemyProjectile : Sprite
 {
     private float _mouseDirection;
     private float _mouseAngle;
-    private float _projectileSpeed = 15.0f;
+    private float _projectileSpeed = 5.0f;
 
-    //private Player _targetPlayer;
+    private Player _targetPlayer;
     //private Level _targetLevel;
 
-    public Projectile() : base("triangle.png")
+    public EnemyProjectile() : base("triangle.png")
     {
         SetScaleXY(0.2f, 0.2f);
         SetOrigin(0, height / 2f);
@@ -21,7 +21,7 @@ public class Projectile : Sprite
 
     public void SetRotation()
     {
-        _mouseDirection = Mathf.Atan2(Input.mouseY- this.y, Input.mouseX - this.x);
+        _mouseDirection = Mathf.Atan2(_targetPlayer.y - this.y, _targetPlayer.x - this.x);
         _mouseAngle = (_mouseDirection * (180 / Mathf.PI));
         this.rotation = _mouseAngle;
     }
@@ -35,10 +35,10 @@ public class Projectile : Sprite
         }
     }
 
-    //public void SetTargetPlayer(Player player)
-    //{
-    //    _targetPlayer = player;
-    //}
+    public void SetTargetPlayer(Player player)
+    {
+        _targetPlayer = player;
+    }
 
     //public void SetTargetLevel(Level level)
     //{
