@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="30" height="18" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+<map version="1.4" tiledversion="2021.01.13" orientation="orthogonal" renderorder="right-down" width="30" height="18" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="104">
  <tileset firstgid="1" name="SandyBricks01" tilewidth="32" tileheight="32" tilecount="18" columns="6">
   <image source="SandTiles02TRUE.png" width="192" height="96"/>
  </tileset>
@@ -56,27 +56,106 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="4" name="Objects" width="30" height="18">
-  <data encoding="csv">
-19,20,26,28,20,28,20,20,26,21,35,35,26,19,19,21,28,20,21,19,19,21,27,26,19,28,27,21,27,20,
-20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,
-35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,
-28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,
-19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,
-35,0,0,0,0,0,0,0,0,0,0,42,0,0,0,0,0,0,0,0,0,0,43,0,0,0,0,0,0,28,
-28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,
-20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0,0,0,28,
-26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,0,0,0,0,0,0,0,0,0,0,0,0,0,35,
-20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,36,0,0,0,0,0,0,0,0,0,0,0,0,0,28,
-28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,
-19,0,0,0,0,0,0,0,0,0,0,0,43,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,
-20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,
-27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,42,0,0,0,0,0,0,0,0,21,
-21,0,0,0,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,
-19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,
-26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,
-33,33,33,41,33,40,34,33,41,33,41,34,34,34,33,34,41,34,41,41,34,33,40,34,41,34,33,40,41,40
-</data>
- </layer>
- <objectgroup id="2" name="Object Layer 1"/>
+ <objectgroup id="2" name="Object Layer 1">
+  <object id="3" type="ObjectsToCollideWith" gid="36" x="480" y="320" width="32" height="32"/>
+  <object id="4" type="ObjectsToCollideWith" gid="29" x="480" y="288" width="32" height="32"/>
+  <object id="5" type="ObjectsToCollideWith" gid="22" x="480" y="256" width="32" height="32"/>
+  <object id="6" type="ObjectsToCollideWith" gid="43" x="704" y="192" width="32" height="32"/>
+  <object id="7" type="ObjectsToCollideWith" gid="43" x="384" y="384" width="32" height="32"/>
+  <object id="8" type="ObjectsToCollideWith" gid="42" x="640" y="448" width="32" height="32"/>
+  <object id="9" type="ObjectsToCollideWith" gid="42" x="352" y="192" width="32" height="32"/>
+  <object id="10" type="ObjectsToCollideWith" gid="42" x="128" y="480" width="32" height="32"/>
+  <object id="11" type="ObjectsToCollideWith" gid="19" x="0" y="32" width="32" height="32"/>
+  <object id="12" type="ObjectsToCollideWith" gid="20" x="32" y="32" width="32" height="32"/>
+  <object id="13" type="ObjectsToCollideWith" gid="20" x="0" y="64" width="32" height="32"/>
+  <object id="14" type="ObjectsToCollideWith" gid="20" x="0" y="256" width="32" height="32"/>
+  <object id="15" type="ObjectsToCollideWith" gid="20" x="0" y="320" width="32" height="32"/>
+  <object id="16" type="ObjectsToCollideWith" gid="20" x="0" y="416" width="32" height="32"/>
+  <object id="17" type="ObjectsToCollideWith" gid="20" x="928" y="32" width="32" height="32"/>
+  <object id="18" type="ObjectsToCollideWith" gid="20" x="928" y="160" width="32" height="32"/>
+  <object id="19" type="ObjectsToCollideWith" gid="20" x="544" y="32" width="32" height="32"/>
+  <object id="20" type="ObjectsToCollideWith" gid="20" x="224" y="32" width="32" height="32"/>
+  <object id="21" type="ObjectsToCollideWith" gid="20" x="192" y="32" width="32" height="32"/>
+  <object id="22" type="ObjectsToCollideWith" gid="20" x="128" y="32" width="32" height="32"/>
+  <object id="23" type="ObjectsToCollideWith" gid="19" x="416" y="32" width="32" height="32"/>
+  <object id="24" type="ObjectsToCollideWith" gid="19" x="448" y="32" width="32" height="32"/>
+  <object id="25" type="ObjectsToCollideWith" gid="19" x="608" y="32" width="32" height="32"/>
+  <object id="26" type="ObjectsToCollideWith" gid="19" x="640" y="32" width="32" height="32"/>
+  <object id="27" type="ObjectsToCollideWith" gid="19" x="768" y="32" width="32" height="32"/>
+  <object id="28" type="ObjectsToCollideWith" gid="19" x="0" y="160" width="32" height="32"/>
+  <object id="29" type="ObjectsToCollideWith" gid="19" x="0" y="384" width="32" height="32"/>
+  <object id="30" type="ObjectsToCollideWith" gid="19" x="0" y="512" width="32" height="32"/>
+  <object id="31" type="ObjectsToCollideWith" gid="21" x="288" y="32" width="32" height="32"/>
+  <object id="32" type="ObjectsToCollideWith" gid="21" x="480" y="32" width="32" height="32"/>
+  <object id="33" type="ObjectsToCollideWith" gid="21" x="576" y="32" width="32" height="32"/>
+  <object id="34" type="ObjectsToCollideWith" gid="21" x="672" y="32" width="32" height="32"/>
+  <object id="35" type="ObjectsToCollideWith" gid="21" x="864" y="32" width="32" height="32"/>
+  <object id="36" type="ObjectsToCollideWith" gid="21" x="928" y="224" width="32" height="32"/>
+  <object id="37" type="ObjectsToCollideWith" gid="21" x="928" y="384" width="32" height="32"/>
+  <object id="38" type="ObjectsToCollideWith" gid="21" x="928" y="448" width="32" height="32"/>
+  <object id="39" type="ObjectsToCollideWith" gid="21" x="928" y="544" width="32" height="32"/>
+  <object id="40" type="ObjectsToCollideWith" gid="21" x="0" y="480" width="32" height="32"/>
+  <object id="41" type="ObjectsToCollideWith" gid="26" x="64" y="32" width="32" height="32"/>
+  <object id="42" type="ObjectsToCollideWith" gid="26" x="256" y="32" width="32" height="32"/>
+  <object id="43" type="ObjectsToCollideWith" gid="26" x="384" y="32" width="32" height="32"/>
+  <object id="44" type="ObjectsToCollideWith" gid="26" x="736" y="32" width="32" height="32"/>
+  <object id="45" type="ObjectsToCollideWith" gid="26" x="928" y="96" width="32" height="32"/>
+  <object id="47" type="ObjectsToCollideWith" gid="26" x="928" y="352" width="32" height="32"/>
+  <object id="48" type="ObjectsToCollideWith" gid="26" x="928" y="480" width="32" height="32"/>
+  <object id="49" type="ObjectsToCollideWith" gid="26" x="928" y="512" width="32" height="32"/>
+  <object id="50" type="ObjectsToCollideWith" gid="26" x="0" y="288" width="32" height="32"/>
+  <object id="51" type="ObjectsToCollideWith" gid="26" x="0" y="544" width="32" height="32"/>
+  <object id="52" type="ObjectsToCollideWith" gid="27" x="704" y="32" width="32" height="32"/>
+  <object id="53" type="ObjectsToCollideWith" gid="27" x="832" y="32" width="32" height="32"/>
+  <object id="54" type="ObjectsToCollideWith" gid="27" x="896" y="32" width="32" height="32"/>
+  <object id="55" type="ObjectsToCollideWith" gid="27" x="928" y="64" width="32" height="32"/>
+  <object id="56" type="ObjectsToCollideWith" gid="27" x="0" y="448" width="32" height="32"/>
+  <object id="57" type="ObjectsToCollideWith" gid="28" x="96" y="32" width="32" height="32"/>
+  <object id="58" type="ObjectsToCollideWith" gid="28" x="160" y="32" width="32" height="32"/>
+  <object id="59" type="ObjectsToCollideWith" gid="28" x="512" y="32" width="32" height="32"/>
+  <object id="60" type="ObjectsToCollideWith" gid="28" x="800" y="32" width="32" height="32"/>
+  <object id="61" type="ObjectsToCollideWith" gid="28" x="928" y="192" width="32" height="32"/>
+  <object id="62" type="ObjectsToCollideWith" gid="28" x="928" y="256" width="32" height="32"/>
+  <object id="63" type="ObjectsToCollideWith" gid="28" x="928" y="320" width="32" height="32"/>
+  <object id="64" type="ObjectsToCollideWith" gid="28" x="0" y="128" width="32" height="32"/>
+  <object id="65" type="ObjectsToCollideWith" gid="28" x="0" y="224" width="32" height="32"/>
+  <object id="66" type="ObjectsToCollideWith" gid="28" x="0" y="352" width="32" height="32"/>
+  <object id="67" type="ObjectsToCollideWith" gid="35" x="0" y="96" width="32" height="32"/>
+  <object id="68" type="ObjectsToCollideWith" gid="35" x="0" y="192" width="32" height="32"/>
+  <object id="69" type="ObjectsToCollideWith" gid="35" x="320" y="32" width="32" height="32"/>
+  <object id="70" type="ObjectsToCollideWith" gid="35" x="352" y="32" width="32" height="32"/>
+  <object id="71" type="ObjectsToCollideWith" gid="35" x="928" y="128" width="32" height="32"/>
+  <object id="72" type="ObjectsToCollideWith" gid="35" x="928" y="288" width="32" height="32"/>
+  <object id="73" type="ObjectsToCollideWith" gid="35" x="928" y="416" width="32" height="32"/>
+  <object id="74" type="ObjectsToCollideWith" gid="33" x="0" y="576" width="32" height="32"/>
+  <object id="75" type="ObjectsToCollideWith" gid="33" x="32" y="576" width="32" height="32"/>
+  <object id="76" type="ObjectsToCollideWith" gid="33" x="64" y="576" width="32" height="32"/>
+  <object id="77" type="ObjectsToCollideWith" gid="33" x="128" y="576" width="32" height="32"/>
+  <object id="78" type="ObjectsToCollideWith" gid="33" x="224" y="576" width="32" height="32"/>
+  <object id="79" type="ObjectsToCollideWith" gid="33" x="288" y="576" width="32" height="32"/>
+  <object id="80" type="ObjectsToCollideWith" gid="33" x="448" y="576" width="32" height="32"/>
+  <object id="81" type="ObjectsToCollideWith" gid="33" x="672" y="576" width="32" height="32"/>
+  <object id="82" type="ObjectsToCollideWith" gid="33" x="832" y="576" width="32" height="32"/>
+  <object id="83" type="ObjectsToCollideWith" gid="34" x="192" y="576" width="32" height="32"/>
+  <object id="84" type="ObjectsToCollideWith" gid="34" x="352" y="576" width="32" height="32"/>
+  <object id="85" type="ObjectsToCollideWith" gid="34" x="384" y="576" width="32" height="32"/>
+  <object id="86" type="ObjectsToCollideWith" gid="34" x="416" y="576" width="32" height="32"/>
+  <object id="87" type="ObjectsToCollideWith" gid="34" x="480" y="576" width="32" height="32"/>
+  <object id="88" type="ObjectsToCollideWith" gid="34" x="544" y="576" width="32" height="32"/>
+  <object id="89" type="ObjectsToCollideWith" gid="34" x="640" y="576" width="32" height="32"/>
+  <object id="90" type="ObjectsToCollideWith" gid="34" x="736" y="576" width="32" height="32"/>
+  <object id="91" type="ObjectsToCollideWith" gid="34" x="800" y="576" width="32" height="32"/>
+  <object id="92" type="ObjectsToCollideWith" gid="40" x="160" y="576" width="32" height="32"/>
+  <object id="93" type="ObjectsToCollideWith" gid="40" x="704" y="576" width="32" height="32"/>
+  <object id="94" type="ObjectsToCollideWith" gid="40" x="864" y="576" width="32" height="32"/>
+  <object id="95" type="ObjectsToCollideWith" gid="40" x="928" y="576" width="32" height="32"/>
+  <object id="96" type="ObjectsToCollideWith" gid="41" x="96" y="576" width="32" height="32"/>
+  <object id="97" type="ObjectsToCollideWith" gid="41" x="256" y="576" width="32" height="32"/>
+  <object id="98" type="ObjectsToCollideWith" gid="41" x="320" y="576" width="32" height="32"/>
+  <object id="99" type="ObjectsToCollideWith" gid="41" x="512" y="576" width="32" height="32"/>
+  <object id="100" type="ObjectsToCollideWith" gid="41" x="576" y="576" width="32" height="32"/>
+  <object id="101" type="ObjectsToCollideWith" gid="41" x="608" y="576" width="32" height="32"/>
+  <object id="102" type="ObjectsToCollideWith" gid="41" x="768" y="576" width="32" height="32"/>
+  <object id="103" type="ObjectsToCollideWith" gid="41" x="896" y="576" width="32" height="32"/>
+ </objectgroup>
 </map>
