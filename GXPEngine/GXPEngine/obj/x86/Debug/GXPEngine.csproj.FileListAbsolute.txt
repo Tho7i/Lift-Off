@@ -22,3 +22,9 @@ C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lift-Off\GXPEngine\GXPEngine\bin\Debu
 C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lift-Off\GXPEngine\GXPEngine\bin\Debug\Prototype 1.3.pdb
 C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lift-Off\GXPEngine\GXPEngine\obj\x86\Debug\Prototype 1.3.exe
 C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lift-Off\GXPEngine\GXPEngine\obj\x86\Debug\Prototype 1.3.pdb
+C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lif-Off-Project\GXPEngine\GXPEngine\obj\x86\Debug\GXPEngine.csprojAssemblyReference.cache
+C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lif-Off-Project\GXPEngine\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
+C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lif-Off-Project\GXPEngine\GXPEngine\bin\Debug\Playtest.exe
+C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lif-Off-Project\GXPEngine\GXPEngine\bin\Debug\Playtest.pdb
+C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lif-Off-Project\GXPEngine\GXPEngine\obj\x86\Debug\Playtest.exe
+C:\Users\Tino\Desktop\Uni\Project_Lift_Off\Lif-Off-Project\GXPEngine\GXPEngine\obj\x86\Debug\Playtest.pdb

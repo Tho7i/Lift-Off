@@ -12,10 +12,11 @@ public class ChargingEnemy : Sprite
     private int _randomise;
     private int _randomise2;
     private float _playerDistance;
+    private float _stopDuration = 500;
 
     private Sound _enemyDamage;
 
-    public ChargingEnemy() : base("checkers.png")
+    public ChargingEnemy() : base("CharginEnemy.png")
     {
         _enemyDamage = new Sound("EnemyDamage.wav", false, false);
         this.SetOrigin(this.width / 2, this.height / 2);
@@ -30,7 +31,12 @@ public class ChargingEnemy : Sprite
         _playerDistance = Mathf.Sqrt(Mathf.Pow(this.x - _targetPlayer.x, 2) + Mathf.Pow(this.y - _targetPlayer.y, 2));
         if (_playerDistance <= 150)
         {
-            _movSpeed = 2.0f;
+            if(_stopDuration > 0)
+            {
+                _movSpeed = 0.0f;
+                _stopDuration -= Time.deltaTime;
+            }
+            else { _movSpeed = 2.0f; }
         }
         else { _movSpeed = 1.0f; }
     }
@@ -41,18 +47,18 @@ public class ChargingEnemy : Sprite
 
         if (_randomise == 1)
         {
-            x = Utils.Random(1, game.width + 1);
+            x = Utils.Random(-64, game.width + 65);
 
 
-            if (x <= 64 || x >= 704)
+            if (x <= 0 || x >= game.width)
             {
                 y = Utils.Random(1, game.height + 1);
             }
             else
             {
                 _randomise2 = Utils.Random(1, 3);
-                if (_randomise2 == 1) { y = 0; }
-                else { y = game.height; }
+                if (_randomise2 == 1) { y = -64; }
+                else { y = game.height + 64; }
             }
         }
         else
@@ -60,15 +66,15 @@ public class ChargingEnemy : Sprite
             y = Utils.Random(1, game.height + 1);
 
 
-            if (y <= 64 || y >= 570)
+            if (y <= 0 || y >= game.height + 65)
             {
                 x = Utils.Random(1, game.width + 1);
             }
             else
             {
                 _randomise2 = Utils.Random(1, 3);
-                if (_randomise2 == 1) { x = 0; }
-                else { x = game.width; }
+                if (_randomise2 == 1) { x = -64; }
+                else { x = game.width + 64; }
             }
         }
     }
@@ -100,11 +106,16 @@ public class ChargingEnemy : Sprite
         if (other is Projectile)
         {
             _enemyDamage.Play();
-            _health--;
+            Projectile projectile = (Projectile)other;
+            if (projectile.fire)
+            {
+                _health -= 2;
+            }
+            else { _health--; }
             other.LateDestroy();
         }
 
-        if (other is Explosive)
+        if (other is DamagingExplosive)
         {
             _enemyDamage.Play();
             _health -= 2;

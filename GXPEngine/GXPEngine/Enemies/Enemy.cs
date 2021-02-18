@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using GXPEngine;
 
-public class Enemy : AnimSprite
+public class Enemy : Sprite
 {
     private Player _targetPlayer;
     private float _movSpeed = 1.0f;
@@ -14,11 +14,10 @@ public class Enemy : AnimSprite
 
     private Sound _enemyDamage;
 
-    public Enemy() : base("Enemy.png", 2, 1)
+    public Enemy() : base("Enemy.png")
     {
         _enemyDamage = new Sound("EnemyDamage.wav", false, false);
         this.SetOrigin(this.width / 2, this.height / 2);
-        SetFrame(0);
         randomizeEnemyPosition();
     }
 
@@ -34,18 +33,18 @@ public class Enemy : AnimSprite
 
         if (_randomise == 1)
         {
-            x = Utils.Random(1, game.width + 1);
+            x = Utils.Random(-64, game.width + 65);
 
 
-            if (x <= 64 || x >= 704)
+            if (x <= 0 || x >= game.width)
             {
                 y = Utils.Random(1, game.height + 1);
             }
             else
             {
                 _randomise2 = Utils.Random(1, 3);
-                if (_randomise2 == 1) { y = 0; }
-                else { y = game.height; }
+                if (_randomise2 == 1) { y = -64; }
+                else { y = game.height + 64; }
             }
         }
         else
@@ -53,15 +52,15 @@ public class Enemy : AnimSprite
             y = Utils.Random(1, game.height + 1);
 
 
-            if (y <= 64 || y >= 570)
+            if (y <= 0 || y >= game.height + 65)
             {
                 x = Utils.Random(1, game.width + 1);
             }
             else
             {
                 _randomise2 = Utils.Random(1, 3);
-                if (_randomise2 == 1) { x = 0; }
-                else { x = game.width; }
+                if (_randomise2 == 1) { x = -64; }
+                else { x = game.width + 64; }
             }
         }
     }
@@ -94,11 +93,16 @@ public class Enemy : AnimSprite
         if (other is Projectile)
         {
             _enemyDamage.Play();
-            _health--;
+            Projectile projectile = (Projectile)other;
+            if (projectile.fire)
+            {
+                _health -= 2;
+            }
+            else { _health--; }
             other.LateDestroy();
         }
 
-        if (other is Explosive)
+        if (other is DamagingExplosive)
         {
             _enemyDamage.Play();
             _health -= 2;
